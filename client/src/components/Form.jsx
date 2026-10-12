@@ -96,7 +96,7 @@ function Form({ isOpen, setIsOpen, onSubmit, addMode, initialValues = {} }) {
               id="add-data-title"
               className="text-2xl font-extrabold tracking-tight"
             >
-              {addMode ? 'Add data' : "Let's see what you want to change!"}
+              {addMode ? 'Add data' : 'Edit data'}
             </h2>
             <p className="mt-1 text-sm font-medium text-[#9AA7B8]">
               {addMode
@@ -181,15 +181,15 @@ function Form({ isOpen, setIsOpen, onSubmit, addMode, initialValues = {} }) {
           accent="#8794A6"
           error={errors.description}
         >
-          <textarea
+          <input
             id="description"
+            type="text"
             name="description"
-            rows={3}
             placeholder="Enter a short description"
             defaultValue={initialValues.description}
             aria-invalid={!!errors.description}
             aria-describedby="description-error"
-            className={`${ring(errors.description, 'focus:border-[#4ADE9C]')} resize-none`}
+            className={ring(errors.description, 'focus:border-[#4ADE9C]')}
           />
         </Field>
 

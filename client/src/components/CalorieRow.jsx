@@ -12,21 +12,20 @@ export function CalorieRow({
   onEdit,
   onDelete,
 }) {
-  const d = new Date(date);
-  const day = d.getDate();
-  const month = d.toLocaleString('en-US', { month: 'short' }).toUpperCase();
+  // parse as a local date (new Date('YYYY-MM-DD') is UTC and can shift the weekday)
+  const d = new Date(`${date}T00:00:00`);
   const weekday = d.toLocaleString('en-US', { weekday: 'short' }).toUpperCase();
 
   return (
     <div
       className={`flex flex-wrap items-center gap-x-6 gap-y-4 rounded-[22px] border border-[#263243] bg-[#171E27] px-7 py-[22px] ${GRID}`}
     >
-      <div className="flex w-[110px] flex-col gap-0.5">
-        <div className="text-[38px] font-extrabold leading-none text-[#F2F5F9]">
-          {day}
+      <div className="flex w-[110px] flex-col gap-1.5">
+        <div className="text-base font-extrabold leading-none tabular-nums text-[#F2F5F9]">
+          {date}
         </div>
         <div className="text-xs font-bold tracking-[0.14em] text-[#8794A6]">
-          {month} · {weekday}
+          {weekday}
         </div>
       </div>
 
@@ -45,6 +44,7 @@ export function CalorieRow({
             {caloriesIn}
           </div>
           <div className="text-xs font-semibold text-[#9AA7B8]">kcal eaten</div>
+          <span className="sr-only">{`Calories Intake = ${caloriesIn}`}</span>
         </div>
       </div>
 
@@ -59,6 +59,7 @@ export function CalorieRow({
             {caloriesBurnt}
           </div>
           <div className="text-xs font-semibold text-[#9AA7B8]">kcal burnt</div>
+          <span className="sr-only">{`Calories Burned = ${caloriesBurnt}`}</span>
         </div>
       </div>
 
