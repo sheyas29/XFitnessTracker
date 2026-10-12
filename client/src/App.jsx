@@ -3,7 +3,7 @@ import { CalorieRowHeader } from './components/CalorieHeader';
 import { CalorieRow } from './components/CalorieRow';
 import ConfirmDialog from './components/ConfirmDialog';
 import Form from './components/Form';
-import Header from './components/header';
+import Header from './components/Header';
 import OverallData from './components/OverallData';
 import WeeklyChart from './components/WeeklyChart';
 
